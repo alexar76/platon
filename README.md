@@ -9,7 +9,7 @@
 
 <!-- aicom-readme-badges -->
 <p align="center">
-  <a href="https://github.com/alexar76/platon/actions/workflows/ci.yml"><img src="https://raw.githubusercontent.com/alexar76/platon/refs/heads/main/docs/badges/ci.svg" alt="CI" /></a>
+  <a href="https://github.com/alexar76/platon/actions/workflows/ci.yml"><img src="https://github.com/alexar76/platon/actions/workflows/ci.yml/badge.svg" alt="CI" /></a>
   <img src="https://raw.githubusercontent.com/alexar76/platon/refs/heads/main/docs/badges/tests.svg" alt="65 tests passing" />
   <img src="https://raw.githubusercontent.com/alexar76/platon/refs/heads/main/docs/badges/aimarket.svg" alt="AIMarket v2" />
   <img src="https://raw.githubusercontent.com/alexar76/platon/refs/heads/main/docs/badges/umbral.svg" alt="UMBRAL cave" />
