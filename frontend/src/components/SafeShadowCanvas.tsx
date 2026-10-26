@@ -16,7 +16,7 @@ export const SafeShadowCanvas = memo(function SafeShadowCanvas({
   agentInvokes?: import("../lib/types").AgentInvoke[];
   dreamPreview?: import("../lib/types").DreamPreview | null;
 }) {
-  const [mode, setMode] = useState<"webgl" | "fallback">("webgl");
+  const [mode] = useState<"webgl" | "fallback">("webgl");
   const { ref: sizeRef, style: sizeStyle } = useStableCanvasSize();
   const tier = getGraphicsProfile().tier;
   const stageClass = `canvas-stage tier-${tier}`;

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type RefObject } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { AgentInvoke, DreamPreview, Telemetry, Witness } from "../lib/types";
 import { platonUrl, platonWsUrl } from "../lib/platonUrl";
 
