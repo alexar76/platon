@@ -137,6 +137,12 @@ Full catalog in [docs/en/ORACLE.md](docs/en/ORACLE.md).
 
 Hub registration (optional): `python scripts/register_with_hub.py`
 
+**Who can steer.** Reading is open. Writes (steer, project, the hub's `platon.steer@v1`) need
+`PLATON_STEER_TOKEN` when it is set. Without it, production refuses every write and any other
+environment takes writes from this machine only; a reverse proxy on the same host does not count
+(since 0.1.5). A public demo where every visitor steers says so with `PLATON_PUBLIC_WRITES=1`, as
+[docker-compose.yml](docker-compose.yml) does. Up to 0.1.3 a keyless server took writes from anyone.
+
 **Documentation (EN / RU / ES):** [docs/README.md](docs/README.md) · [Oracle vision](docs/en/ORACLE.md) · [Ecosystem + diagrams](docs/ECOSYSTEM.md)
 
 ## Related repos
