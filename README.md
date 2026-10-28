@@ -137,11 +137,23 @@ Full catalog in [docs/en/ORACLE.md](docs/en/ORACLE.md).
 
 Hub registration (optional): `python scripts/register_with_hub.py`
 
-**Who can steer.** Reading is open. Writes (steer, project, the hub's `platon.steer@v1`) need
-`PLATON_STEER_TOKEN` when it is set. Without it, production refuses every write and any other
-environment takes writes from this machine only; a reverse proxy on the same host does not count
-(since 0.1.5). A public demo where every visitor steers says so with `PLATON_PUBLIC_WRITES=1`, as
-[docker-compose.yml](docker-compose.yml) does. Up to 0.1.3 a keyless server took writes from anyone.
+**Who can steer.** Reading is open. HTTP writes (steer, project, the hub's
+`platon.steer@v1`) require `PLATON_STEER_TOKEN` by default, including loopback.
+Production refuses writes without it. For an isolated development environment,
+`PLATON_LOCAL_RELAY=1` explicitly trusts keyless local TCP, including proxies and tunnels
+running as the server's user. Their socket must belong to that user; without the kernel's
+socket table (macOS/Windows), also set `PLATON_LOCAL_UNVERIFIED=1`. A known different owner
+or unmatched connection is refused even with these settings. Use a token when relays
+must authenticate callers. Since 0.1.6, process names and listeners are no longer used
+to guess whether a same-user connection is a relay.
+
+A deliberately public demo says so with `PLATON_PUBLIC_WRITES=1`, as
+[docker-compose.yml](docker-compose.yml) does; this does not bypass production or a
+configured token. Up to 0.1.3 a keyless server took writes from anyone.
+
+**Whose address counts.** The per-client limits key on `X-Real-IP` / `X-Forwarded-For` only when the
+TCP peer is in `PLATON_TRUSTED_PROXIES` (addresses, CIDRs, host names, `gateway`; loopback by default).
+The compose file names the frontend's nginx: `127.0.0.1/32,::1/128,platon-frontend`.
 
 **Documentation (EN / RU / ES):** [docs/README.md](docs/README.md) · [Oracle vision](docs/en/ORACLE.md) · [Ecosystem + diagrams](docs/ECOSYSTEM.md)
 
